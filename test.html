@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class=" js-no-overflow-scrolling">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>test1</title>
+<style type="text/css">
+	.scale {
+		-webkit-transform: scale(2.86);
+	}
+	.no-scale {
+		-webkit-transform: scale(1);
+	}
+</style>
+
+</head>
+<body>
+	<img id="doubleImg" src="http://img.article.pchome.net/00/50/57/80/pic_lib/s960x639/html5_1color_blacks960x639.jpg">
+	<script type="text/javascript">
+    window.pageStartTime = Date.now();
+    var scaleFlag = false;
+    document.getElementById('doubleImg').addEventListener('dblclick', function(e){
+    	var rect = e.currentTarget.getBoundingClientRect();  
+	    var gravityPoint = {
+	            x: e.clientX - rect.left,  
+	            y: e.clientY - rect.top
+	          };
+    	if (!scaleFlag) {
+		    document.getElementById('doubleImg').style.cssText = 'transition: -webkit-transform 300ms ease-in-out;-webkit-transform-origin: ' + gravityPoint.x +'px ' + gravityPoint.y +'px;';
+		    document.getElementById('doubleImg').className = 'scale';
+		    scaleFlag = true;
+    	} else {
+    		document.getElementById('doubleImg').className = 'no-scale';
+    		scaleFlag = false;
+    	}
+    	
+    });
+</script>
+</body>
+</html>

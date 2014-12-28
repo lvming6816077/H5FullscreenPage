@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class=" js-no-overflow-scrolling">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>test1</title>
+<style type="text/css">
+	
+	html, body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	* {
+		margin:0;
+		padding: 0;
+	}
+	ul {
+		list-style: none;
+	}
+	.item {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		transition: all 800ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+		-webkit-transition: all 800ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+		background-position: center;
+	}
+	.item2 {
+		transform: translate3d(0,101%,0);
+		-webkit-transform: translate3d(0,101%,0);
+		background-image: url(img2.png);
+	}
+	.item1 {
+		background-image: url(img.png);
+	}
+	.item3 {
+		transform: translate3d(0,101%,0);
+		-webkit-transform: translate3d(0,101%,0);
+		background-image: url(img3.png);
+	}
+	.item4 {
+		transform: translate3d(0,101%,0);
+		-webkit-transform: translate3d(0,101%,0);
+		background-image: url(img.png);
+	}
+	.item5 {
+		transform: translate3d(0,101%,0);
+		-webkit-transform: translate3d(0,101%,0);
+		background-image: url(img2.png);
+	}
+	.container {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		
+	}
+	.no-animation {
+		transition: none;
+		-webkit-transition: none;
+	}
+	.overlay {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 99;
+	}
+    .zindex {
+        z-index: 99;
+    }
+</style>
+
+</head>
+<body>
+	<div class="container">
+		<div class="item item1" data-page="true"></div>
+		<div class="item item2" data-page="true">
+            <h1>213333</h1>
+        </div>
+		<div class="item item3" data-page="true"></div>
+		<div class="item item4" data-page="true"></div>
+		<div class="item item5" data-page="true"></div>
+	</div>
+	<div class="overlay"></div>
+	<script type="text/javascript" src="zepto.js"></script>
+	<script type="text/javascript">
+    var flag = 'type2';
+    var obj = {
+        'type1' : {
+            'upDrag' : function(percentage, event){
+                var translateY = 1 - 0.7*percentage;//位置系数，可以微调
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+            },
+            'downDrag' : function(percentage, event){
+                var translateY = -(0.7*percentage);
+                $(event.target).prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                $(event.target).css('-webkit-tr ansform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+            },
+            'nextSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'translate3d(0,-101%,0)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,0,0)');
+            },
+            'prevSlide' : function(event){
+                $(event.target).prev().css('-webkit-transform', 'scale(1)'); 
+                $(event.target).css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            },
+            'showSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'scale(1)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            }
+        },
+        'type2' : {
+            'upDrag' : function(percentage, event){
+                var scale = 1 - 0.2*percentage;//缩放系数，可以微调
+                var translateY = 1 - 0.7*percentage;//位置系数，可以微调
+                $(event.target).css('-webkit-transform', 'scale('+scale+')');//当前item缩小
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+            },
+            'downDrag' : function(percentage, event){
+                var scale = 0.8 - 0.2*percentage;
+                var translateY = -(0.7*percentage);
+                $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+                $(event.target).prev().css('-webkit-transform', 'scale('+scale+')');//前一个item放大
+            },
+            'nextSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'scale(.8)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,0,0)');
+            },
+            'prevSlide' : function(event){
+                $(event.target).prev().css('-webkit-transform', 'scale(1)'); 
+                $(event.target).css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            },
+            'showSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'scale(1)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            }
+        },
+        'type3' : {
+            'upDrag' : function(percentage, event){
+                var translateY = 1 - 0.4*percentage;//位置系数，可以微调
+                $(event.target).css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+            },
+            'downDrag' : function(percentage, event){
+                var translateY = -(0.4*percentage);
+                $(event.target).prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+            },
+            'nextSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'translate3d(0,-101%,0)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,0,0)');
+            },
+            'prevSlide' : function(event){
+                $(event.target).prev().css('-webkit-transform', 'scale(1)'); 
+                $(event.target).css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            },
+            'showSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'scale(1)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            }
+        },
+        'type4' : {
+            'upDrag' : function(percentage, event){
+                var translateY = 1 - 0.4*percentage;//位置系数，可以微调
+                $(event.target).css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+            },
+            'downDrag' : function(percentage, event){
+                var translateY = -(0.4*percentage);
+                $(event.target).prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+            },
+            'nextSlide' : function(event){
+                $(event.target).addClass('zindex');
+                setTimeout(function(){
+                    $(event.target).removeClass('no-animation').css('-webkit-transform', 'translate3d(0,-101%,0)');
+                    $(event.target).next().removeClass('zindex').addClass('no-animation').css('-webkit-transform', 'translate3d(0,0,0)');
+                },100);
+                
+            },
+            'prevSlide' : function(event){
+                
+                $(event.target).prev().css('-webkit-transform', 'translate3d(0,0,0)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,101%,0)'); 
+                $(event.target).removeClass('zindex');
+            },
+            'showSlide' : function(event){
+                $(event.target).css('-webkit-transform', 'scale(1)'); 
+                $(event.target).next().css('-webkit-transform', 'translate3d(0,101%,0)'); 
+            }
+        }
+    };
+    var dragThreshold = 0.25; //临界值
+    var dragStart = null;//开始抓取标志位
+    var percentage = 0;//拖动量的百分比
+     
+    function touchStart(event) {
+    	if (dragStart !== null) return;
+        if (!$(event.target).data('page')) {
+            $('.overlay').hide();
+            return;
+        }
+    	if (event.touches) {
+    		event = event.touches[0];
+    	}
+        //抓取时的所在位置
+    	dragStart = event.clientY;
+     
+        //分别关闭item的动画效果,动画效果只在松开抓取时出现
+    	$(event.target).addClass('no-animation');
+     	$(event.target).next().addClass('no-animation');
+    	$(event.target).prev().addClass('no-animation');
+
+    }
+     
+    function touchMove (event) {
+        //console.log(33);
+    	//防止ios拖动事件
+    	event.preventDefault();
+     	
+    	if (dragStart === null) return;
+        if (!$(event.target).data('page')) {
+            $('.overlay').hide();
+            return;
+        }
+    	if (event.touches) { 
+    		event = event.touches[0];
+    	}
+        //得到抓取开始时于进行中的差值的百分比
+    	percentage = (dragStart - event.clientY) / window.screen.height;//
+        
+    	if (percentage > 0) {
+    		// //向上拖动
+    		var scale = 1 - 0.5*percentage;//缩放系数，可以微调
+    		// var translateY = 1 - 0.4*percentage;//位置系数，可以微调
+    		// $(event.target).css('-webkit-transform', 'scale('+scale+')');//当前item缩小
+    		// $(event.target).next().css('-webkit-transform', 'translateY('+translateY*100+'%)'); //下一个item上移动
+            //$(event.target).css('opacity', ''+scale+'');//当前item缩小
+            obj[flag].upDrag(percentage, event);
+            //console.log(1);
+    	} else if ($(event.target).prev()) {
+    		//向下拖动
+    		// var scale = 0.8 - 0.2*percentage;
+    		// var translateY = -(0.4*percentage);
+    		// $(event.target).css('-webkit-transform', 'translateY('+translateY*100+'%)');//当前item下移动
+    		// $(event.target).prev().css('-webkit-transform', 'scale('+scale+')');//前一个item放大
+            obj[flag].downDrag(percentage, event);
+    	}
+    	
+    }
+     
+    function touchEnd (event) {
+    	//防止多次滚动，故增加一个覆盖层
+     	$('.overlay').show();
+    	dragStart = null;
+        if (!$(event.target).data('page')) {
+            $('.overlay').hide();
+            return;
+        }
+    	$(event.target).removeClass('no-animation');
+    	$(event.target).next().removeClass('no-animation');
+    	$(event.target).prev().removeClass('no-animation');
+    	
+    	//抓取停止后，根据临界值做相应判断
+    	if (percentage >= dragThreshold) {
+    		nextSlide(event);
+    	} else if ( Math.abs(percentage) >= dragThreshold ) {
+    		prevSlide(event);
+    	} else {
+    		showSlide(event);
+    	}
+        //重置percentage
+    	percentage = 0;
+
+    }
+    function swipeUp(event){
+        nextSlide(event);
+        //$(event.target).css('-webkit-transform', 'translateY(-101%)'); 
+        //$(event.target).next().css('-webkit-transform', 'translateY(0)'); 
+    }
+    function swipeDown(event){
+        prevSlide(event);
+        //$(event.target).css('-webkit-transform', 'translateY(101%)'); 
+        //$(event.target).prev().css('-webkit-transform', 'translateY(0)'); 
+    }
+    function nextSlide(event){
+        console.log($(event.target).next().length);
+    	//恢复到原样，或者展示下一item
+    	if ($(event.target).next().length) {
+            obj[flag].nextSlide(event);
+    	} else {
+            obj[flag].showSlide(event);
+    	}
+    	
+    }
+    function prevSlide(event){
+        console.log($(event.target).prev().length);
+    	if ($(event.target).prev().length) {
+            obj[flag].prevSlide(event);
+    	} else {
+    		obj[flag].showSlide(event);
+    	}
+    	
+    }
+    function showSlide(event){
+        obj[flag].showSlide(event);
+    }
+   // 绑定事件
+    $('.item').on({
+    	'touchstart': touchStart,
+    	'touchmove': touchMove,
+    	'touchend': touchEnd
+    });
+    $(document).on('touchmove', function(e){
+        e.preventDefault();
+    });
+    // $('.item').on({
+    //     'swipeUp': swipeUp,
+    //     'swipeDown': swipeDown
+    // });
+    $('.item').on('tap', function(){
+        //覆盖层隐藏
+        $('.overlay').hide();
+    });
+    $('.item').on('transitionend', function(){
+    	//覆盖层隐藏
+    	$('.overlay').hide();
+    });
+    $('.overlay').on('tap', function(){
+        //覆盖层隐藏
+        $('.overlay').hide();
+    });
+    
+	</script>
+</body>
+</html>
