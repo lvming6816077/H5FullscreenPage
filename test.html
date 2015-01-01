@@ -1,42 +1,108 @@
 <!DOCTYPE html>
-<html class=" js-no-overflow-scrolling">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="cache-control" content="max-age=0" />
-<meta http-equiv="cache-control" content="no-cache" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>test1</title>
-<style type="text/css">
-	.scale {
-		-webkit-transform: scale(2.86);
-	}
-	.no-scale {
-		-webkit-transform: scale(1);
-	}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Document</title>
+    
+    <style type="text/css">
+        .container {
+            height: 300px;
+            width: 100%;
+            overflow: auto;
+        }
+        img {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-	<img id="doubleImg" src="http://img.article.pchome.net/00/50/57/80/pic_lib/s960x639/html5_1color_blacks960x639.jpg">
-	<script type="text/javascript">
-    window.pageStartTime = Date.now();
-    var scaleFlag = false;
-    document.getElementById('doubleImg').addEventListener('dblclick', function(e){
-    	var rect = e.currentTarget.getBoundingClientRect();  
-	    var gravityPoint = {
-	            x: e.clientX - rect.left,  
-	            y: e.clientY - rect.top
-	          };
-    	if (!scaleFlag) {
-		    document.getElementById('doubleImg').style.cssText = 'transition: -webkit-transform 300ms ease-in-out;-webkit-transform-origin: ' + gravityPoint.x +'px ' + gravityPoint.y +'px;';
-		    document.getElementById('doubleImg').className = 'scale';
-		    scaleFlag = true;
-    	} else {
-    		document.getElementById('doubleImg').className = 'no-scale';
-    		scaleFlag = false;
-    	}
-    	
-    });
-</script>
+    
+    <div id="container" class="container">
+        <img dd="33" lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaimg.cn/3306361973/50/22875318196/0">
+        <img lazy-src="http://tp2.sinaiddmg.cn/3306361973/50/2287531338196/0">
+    </div>
+    <script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
+    <script type="text/javascript">
+        var scrolledIntoView = function (element) { 
+            var settings = {
+                container:'#container',
+                threshold:0
+            };
+            var distance;
+            if (settings.container === undefined || settings.container === window) {
+                distance = (window.innerHeight ? window.innerHeight : $(window).height()) + $(window).scrollTop();
+            } else {
+                distance = $(settings.container).offset().top + $(settings.container).height();
+            }
+
+            return distance <= $(element).offset().top - settings.threshold;
+        };
+        var imgArray = $('#container').find('img[lazy-src]');
+        imgArray.on('load',function(){
+            imgArray = imgArray.not(this);
+        });
+        imgArray.on('error',function(){
+            imgArray = imgArray.not(this);
+        });
+        var setSrc = function(item){
+            if (!scrolledIntoView(item)) {
+                $(item).attr('src',$(item).attr('lazy-src'));
+            } 
+        };
+        var setOpacity = function(item){
+            $(item).css('opacity','0');
+        };
+        var removeOpacity = function(item){
+            $(item).css('opacity','1');
+        };
+        var dealWithImg = function(){
+            $.each(imgArray, function(index, item){
+                wrapParent(item);
+                setOpacity(item);
+                setSrc(item);
+                
+            });
+        };
+        var wrapParent = function(item){
+            var wraper = $('<div></div>');
+            wraper.css({
+                height:'50px',
+                width:'50px',
+                backgroundColor:'red'
+            });
+            $(item).wrap(wraper);
+        };
+            
+            
+        dealWithImg();
+        //$('#container').trigger('touchmove');
+        document.getElementById('container').addEventListener("touchmove",function(){
+            //console.log(document.getElementById('aa').getBoundingClientRect());
+            //console.log(scrolledIntoView(document.getElementById('aa')));
+            dealWithImg();
+            
+        });
+        // document.addEventListener("scroll",function(){
+        //     console.log(111);
+        // });
+    </script>
 </body>
 </html>
