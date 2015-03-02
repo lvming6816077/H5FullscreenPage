@@ -7,138 +7,148 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>test1</title>
 <style type="text/css">
-	
-	html, body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-	
-	* {
-		margin:0;
-		padding: 0;
-	}
-	ul {
-		list-style: none;
-	}
-	.item {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		/*transition: all 800ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
-		-webkit-transition: all 800ms cubic-bezier(0.550, 0.085, 0.000, 0.990);*/
+    
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    * {
+        margin:0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /*transition: all 800ms cubic-bezier(0.550, 0.085, 0.000, 0.990);
+        -webkit-transition: all 800ms cubic-bezier(0.550, 0.085, 0.000, 0.990);*/
         transition: all 300ms ease-in-out;
         -webkit-transition: all 300ms ease-in-out;
-		background-position: center;
-	}
-	.item2 {
-		background-image: url(img2.png);
-	}
-	.item1 {
-		background-image: url(img.png);
-	}
-	.item3 {
-		background-image: url(img3.png);
-	}
-	.item4 {
-		background-image: url(img.png);
-	}
-	.item5 {
-		background-image: url(img2.png);
-	}
+        background-position: center;
+    }
+    .item2 {
+        background-color: #0067A6;
+    }
+    .item1 {
+        background-color: #00ABD8;
+    }
+    .item3 {
+        background-color: #008972;
+    }
+    .item4 {
+        background-color: #F5C564;
+    }
+    .item5 {
+        background-color: #F2572D;
+    }
     .item:not(:first-child ) {
         transform: translate3d(0,100%,0);
         -webkit-transform: translate3d(0,100%,0);
     }
-	.container {
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		position: relative;
-		
-	}
-	.no-animation {
-		transition: none;
-		-webkit-transition: none;
-	}
-	.overlay {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		z-index: 99;
-	}
+    .container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        
+    }
+    .no-animation {
+        transition: none;
+        -webkit-transition: none;
+    }
+    .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 99;
+    }
     .zindex {
         z-index: 99;
     }
+    .arrow {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        bottom: 18px;
+        left: 50%;
+        margin-left: -10px;
+        border-top: 2px solid #5a584e;
+        border-left: 2px solid #5a584e;
+        z-index: 9999;
+        display: block;
+        -webkit-tap-highlight-color: rgba(255,255,255,0);
+        animation: fadeInUp 1.5s .2s ease infinite;
+        -webkit-animation: fadeInUp 1.5s .2s infinite;
+    }
+    .music {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: 25px;
+        height: 25px;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAMAAACfBSJ0AAAAh1BMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////9qkf8RAAAALHRSTlMA6j0E4S2vQO/nFWs2Dgga+VMo7M25h3ZG02Vbmnww87NNP96oI8CMb5Lg1UAzAj8AAAKLSURBVEjHndbbkqMgEADQRpSAGsX7XeMmMcmO//99WzqzEgWMNf2QB6tOEZqGblCFHaSkQHzkqLikgQ2Hws9iemmC1saA7TZoLjTO/I/KJVF9wqtP+FRHxN1VYXItPcV3r7wmoVZ5KXMwqAM7LPU0ixVkLwU2KZRL5siB/XBQLn+smAGfwkCVxEwLPjvKNjA3wwMMnaz1X70j9xCbfu5vBxCXBxmAE4vjSMke8PI0Nmc2B0mXg2Pac8NGM3Dz5owLA5v9T0XiqI2bJR26lSHAeVwYgJP8lLKJZWQ9L5SSp/WT7lEwwOZ3Eom0XHBDXZK5eElJNK7qZk6HT6V6/fsyJiNYs3Iene5jVsM2TOs9MzXnbOWgzgAgPqmcyAzlj/C8dqcYwI+wwonMVFMmNw4jGwICsgvKn8zMxy05IAGkjcLxoTGwKC7JNQ8gvcK1q5qUXX+BwlI4SzClswpAtsYJJjufAccaJ5jszh2MoHGCyQ5GzXqCadbT7U8w3OZ5L+1Pk0/Byoher1cpn+rzqxZWoVx5fsp6YfS0XKleXS+q+jTGcnkgKYCyPrf3oa9vA+fLnkP0nYdOug8QGyDixh51V9PFYerOyRnWfyie7vtLfHCKs4H+vN/37OsO4Eb5yr0ymC6ueF+KfmLvDr+6Ie7KFfMif/Oe8X5iws2pKatNaThk+35GdGIeV9SQ/H6K99rgybynYb/tJpv+YKDArFsrpa3WiP4g+tGUEv9GebLLgKSr/jezDyH6n+i3B5mL7qv+zughZqF8O4ZYB1hoVr+ZX1xW/WpeinLNfObvKF8znwF4j+ipnQef0cMDXbQ782f7Yd6linmXEvfwfO2fAfTztX6eZ3Sk7Es3z/8D0fgrl5NXHdYAAAAASUVORK5CYII=');
+
+        background-size: 25px;
+        z-index: 99;
+    }
+    .music.play {
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADcAAAA3CAMAAACfBSJ0AAAAilBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////2N2iNAAAALXRSTlMA6y3h5gVsDgg2snYaPe/UFqtTKPK4r4Z9ZUxFMAP3WpokE97NiyzOv2mjksf96K+aAAACWUlEQVRIx52W6a6CMBCFp9pi2cq+L4LiLu//ejdgIkJL4XJ+GGnypfQM0zkg0smNHAu1bYss7eKeYJUMvfG12M1tAsTO3VjzG91YpNQQVSYZLRGzQqEqpbzgnFDgRZNz4M1SNMIPAmKRB47ozGZWaMO87NASbpkhBeRSUMYvHrEJSzLxkceusKzrFMywB2u0G79qjVRYJxPVPwVoElgrpRnKETkgEc2iNx4ew+hbODxbN2LG9xI/lfanjl8rAnHhClUPfOQ8aoDDDwdKAL3UPREYp2iMacqu+z/hyP5jYsht5zrID3S1AAABB0rY9xujU27/GrcSTUccZV0/6hVw3G7qzIiDSgeAxhRzgzNJfRhzZgNgo0LM9c6EH2cmXIFO4GrAc+5jcEbAgeZCFAu48h4Pzgi4+AJOKuDy7lfCpRpYOwG3W+CuFiB7A2dgKMkG7uBDCxs4aLfut3w+kmdZyp1v0c8EsfP5zPvppFLuiDJx/aJYyu3Tme/FDWVczYqZ79MY90NaOY5TfjkPfXzwuX6A22//PfFF13X25QhTe3Pu4/67df3+GhYU6zQ5n24ZAOpkEL307h3QcL9Y6dSX4lXe334ywigy+vvs8V0pT3zd6+RoT656bXp/4h6gpfj+Hu7P6X1dPfszveWTJeDmg72v8mvk5zLMxh4/j4wnKwMxxs8joLd/zL8b3TJvVVRvnO9b8oSHj1vyi8pjAOmKvJTO5DNDQhmONeMBvSBlNg8q6EJhTrkkf+byo2tMkHeZpq7J16zL18YBij5fs5skX/N5Hvutj2fz/B/LOymzX/xZaQAAAABJRU5ErkJggg==');
+        -webkit-animation: rotate 3.82s linear infinite;
+        animation: rotate 3.82s linear infinite;
+    }
+    @keyframes fadeInUp{0%{opacity:0;transform:translateY(-20px) rotate(-135deg)}100%{opacity:1;transform:translateY(0px) rotate(-135deg)}}@-webkit-keyframes fadeInUp{0%{opacity:0;-webkit-transform:translateY(-20px) rotate(-135deg)}100%{opacity:1;-webkit-transform:translateY(0px) rotate(-135deg)}}
+    @keyframes rotate{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}@-webkit-keyframes rotate{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}
 </style>
 
 </head>
 <body>
-	<div class="container">
-		<div class="item item1"></div>
-		<div class="item item2">
-            <h1>213333</h1>
+    <div class="container">
+        <div class="item item1">
+            <h1>page1</h1>
         </div>
-		<div class="item item3"></div>
-		<div class="item item4"></div>
-		<div class="item item5"></div>
-	</div>
-	<script type="text/javascript" src="zepto.js"></script>
-	<script type="text/javascript">
+        <div class="item item2">
+            <h1>page2</h1>
+        </div>
+        <div class="item item3">
+            <h1>page3</h1>
+        </div>
+        <div class="item item4">
+            <h1>page4</h1>
+        </div>
+        <div class="item item5">
+            <h1>page5</h1>
+        </div>
+    </div>
+    <script type="text/javascript" src="zepto.js"></script>
+    <script type="text/javascript">
     (function(){
          var opt = {
             'type' : 1,
             'pageShow' : function(){},
-            'pageHide' : function(){}
+            'pageHide' : function(){},
+            'useArrow' : true,
+            'useMusic' : {
+                'autoPlay' : true,
+                'loopPlay' : true,
+                'src' : 'http://mat1.gtimg.com/news/2015/love/FadeAway.mp3'
+            }
          };
          window.MagicPage = {
             'init' : function(option){
                 $.extend(opt,option);
-                $('body').append('<div class="overlay"></div>');
-                // 绑定事件
-                $(document).on('touchmove', function(e){
-                    e.preventDefault();
-                });
-                if (opt.type > 4) {
-                    opt.type = opt.type - 4;
-                    $('.item').on({
-                        'swipeUp': swipeUp,
-                        'swipeDown': swipeDown
-                    });
-                } else {
-                    $('.item').on({
-                       'touchstart': touchStart,
-                       'touchmove': touchMove,
-                       'touchend': touchEnd
-                    });
-                }
-                
-                $('.item').on('tap', function(){
-                    //覆盖层隐藏
-                    $('.overlay').hide();
-                });
-                $('.item').on('transitionend', function(event){
-                   //覆盖层隐藏
-                   $('.overlay').hide();
-                   console.log($(event.target).attr('state'));
-                   if ($(event.target).attr('state') == 'next') {
-                        opt.pageShow(event.target);
-                   } else {
-                        opt.pageHide(event.target);
-                   }
-                   // opt.pageComplete(event.target);
-                   // debugger;
-                });
-                $('.overlay').on('tap', function(){
-                    //覆盖层隐藏
-                    $('.overlay').hide();
-                });
+                initDom(opt);
+                initEvent(opt);
             }
          };
          
@@ -354,8 +364,8 @@
          function prevSlide(event){
             if ($(event.target).prev().length) {
                 $(event.target).attr('state','prev');
-                 $(event.target).prev().attr('state','next');
-                 obj[opt.type].prevSlide(event);
+                $(event.target).prev().attr('state','next');
+                obj[opt.type].prevSlide(event);
             } else {
                 obj[opt.type].showSlide(event);
             }
@@ -364,15 +374,75 @@
          function showSlide(event){
              obj[opt.type].showSlide(event);
          }
+         function initDom(opt){
+            $('body').append('<div class="overlay"></div>');
+            if (opt.useArrow) {
+                $('.item').append('<span class="arrow"></span>');
+            }
+            if (opt.useMusic) {
+                var autoplay = opt.useMusic.autoPlay ? 'autoplay="autoplay"' : '';
+                var loopPlay = opt.useMusic.loopPlay ? 'loop="loop"' : '';
+                var src = opt.useMusic.src;
+                $('body').append('<span class="music play"><audio id="audio" src='+src+' '+autoplay+' '+loopPlay+'></audio></span>');
+            }
+         }
+         function initEvent(){
+            $('.music').on('tap',function(){
+                $(this).toggleClass('play');
+                var audio = document.getElementById('audio');
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+            // 绑定事件
+            $(document).on('touchmove', function(e){
+                e.preventDefault();
+            });
+            if (opt.type > 4) {
+                opt.type = opt.type - 4;
+                $('.item').on({
+                    'swipeUp': swipeUp,
+                    'swipeDown': swipeDown
+                });
+            } else {
+                $('.item').on({
+                   'touchstart': touchStart,
+                   'touchmove': touchMove,
+                   'touchend': touchEnd
+                });
+            }
+            
+            $('.item').on('tap', function(){
+                //覆盖层隐藏
+                $('.overlay').hide();
+            });
+            $('.item').on('transitionend', function(event){
+               //覆盖层隐藏
+               $('.overlay').hide();
+               //console.log($(event.target).attr('state'));
+               if ($(event.target).attr('state') == 'next') {
+                    opt.pageShow(event.target);
+               } else {
+                    opt.pageHide(event.target);
+               }
+               // opt.pageComplete(event.target);
+               // debugger;
+            });
+            $('.overlay').on('tap', function(){
+                //覆盖层隐藏
+                $('.overlay').hide();
+            });
+         }
          
     })();
-    MagicPage.init({'type':2,'pageShow' : function(dom){
-        console.log(dom);
+    MagicPage.init({'type':3,'pageShow' : function(dom){
+        //console.log(dom);
     },'pageHide' : function(dom){
-        console.log(11);
-        console.log(dom);
+        //console.log(dom);
     }});
     
-	</script>
+    </script>
 </body>
 </html>
