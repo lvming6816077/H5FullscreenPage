@@ -12,6 +12,8 @@
         margin: 0;
         width: 100%;
         height: 100%;
+        font-family: arial;
+        text-align: center;
     }
     
     * {
@@ -164,45 +166,414 @@
         animation-duration: 1s; 
         -webkit-animation-duration: 1s;
 
-        animation-timing-function: ease-in; 
-        -webkit-animation-timing-function: ease-in;     
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important; 
+        visibility: visible !important;
     }
 
     @keyframes slideLeft {
         0% {
-            -webkit-transform: translateX(100%);
-        }
-        50%{
-            -webkit-transform: translateX(50%);
-        }
-        65%{
-            -webkit-transform: translateX(20%);
-        }
-        
-        95%{
-            -webkit-transform: translateX(10%);
-        }           
-        100% {
-            -webkit-transform: translateX(0%);
-        }
+            opacity: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+                    transform: translate3d(-100%, 0, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
     }
 
     @-webkit-keyframes slideLeft {
         0% {
-            -webkit-transform: translateX(100%);
-        }
-        100% {
-            -webkit-transform: translateX(0%);
-        }
+            opacity: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+                    transform: translate3d(-100%, 0, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
     }
-    .aa {
+    .slideRight{
+        animation-name: slideRight;
+        -webkit-animation-name: slideRight;  
+
+        animation-duration: 1s; 
+        -webkit-animation-duration: 1s;
+
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
+
+        visibility: visible !important;
+    }
+
+    @keyframes slideRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+                    transform: translate3d(100%, 0, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
+    }
+
+    @-webkit-keyframes slideRight {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+                    transform: translate3d(100%, 0, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
+    }
+    .slideUp {
+        animation-name: slideUp;
+        -webkit-animation-name: slideUp;  
+
+        animation-duration: 1s; 
+        -webkit-animation-duration: 1s;
+
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
+
+        visibility: visible !important;
+    }
+
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+                    transform: translate3d(0, -100%, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
+    }
+
+    @-webkit-keyframes slideUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+                    transform: translate3d(0, -100%, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
+    }
+    .slideDown {
+        animation-name: slideDown;
+        -webkit-animation-name: slideDown;  
+
+        animation-duration: 1s; 
+        -webkit-animation-duration: 1s;
+
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
+
+        visibility: visible !important;
+    }
+
+    @keyframes slideDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
+    }
+
+    @-webkit-keyframes slideDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, 100%, 0);
+                    transform: translate3d(0, 100%, 0);
+          }
+
+          100% {
+            opacity: 1;
+            -webkit-transform: none;
+                    transform: none;
+          }
+    }
+    .rotateIn {
+        animation-name: rotateIn;
+        -webkit-animation-name: rotateIn;  
+
+        animation-duration: 1s; 
+        -webkit-animation-duration: 1s;
+
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
+
+        visibility: visible !important;
+    }
+
+    @keyframes rotateIn {
+        0% {
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, -200deg);
+                    transform: rotate3d(0, 0, 1, -200deg);
+            opacity: 0;
+          }
+
+          100% {
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            -webkit-transform: none;
+                    transform: none;
+            opacity: 1;
+          }
+    }
+
+    @-webkit-keyframes rotateIn {
+        0% {
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            -webkit-transform: rotate3d(0, 0, 1, -200deg);
+                    transform: rotate3d(0, 0, 1, -200deg);
+            opacity: 0;
+          }
+
+          100% {
+            -webkit-transform-origin: center;
+                    transform-origin: center;
+            -webkit-transform: none;
+                    transform: none;
+            opacity: 1;
+          }
+    }
+    .zoomIn {
+        animation-name: zoomIn;
+        -webkit-animation-name: zoomIn;  
+
+        animation-duration: 1s; 
+        -webkit-animation-duration: 1s;
+
+        animation-timing-function: ease-in-out; 
+        -webkit-animation-timing-function: ease-in-out;     
+
+        visibility: visible !important;
+    }
+    @-webkit-keyframes zoomIn {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+                transform: scale3d(.3, .3, .3);
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+    .heartBeat{
+        animation-name: heartBeat;
+        -webkit-animation-name: heartBeat;  
+
+        animation-duration: 1.5s;   
+        -webkit-animation-duration: 1.5s;
+
+        animation-iteration-count: infinite;
+        -webkit-animation-iteration-count: infinite;
+    }
+
+    @keyframes heartBeat {
+        0% {
+            transform: scale(0.9);
+            opacity: 0.7;       
+        }
+        50% {
+            transform: scale(1);
+            opacity: 1; 
+        }   
+        100% {
+            transform: scale(0.9);
+            opacity: 0.7;   
+        }           
+    }
+
+    @-webkit-keyframes heartBeat {
+        0% {
+            -webkit-transform: scale(0.95);
+            opacity: 0.7;       
+        }
+        50% {
+            -webkit-transform: scale(1);
+            opacity: 1; 
+        }   
+        100% {
+            -webkit-transform: scale(0.95);
+            opacity: 0.7;   
+        }           
+    }
+    .rollIn {
+      animation-name: rollIn;
+      -webkit-animation-name: rollIn;  
+
+      animation-duration: 1s;   
+      -webkit-animation-duration: 1s;
+        
+      animation-timing-function: ease-in-out; 
+      -webkit-animation-timing-function: ease-in-out;    
+    }
+    @-webkit-keyframes rollIn {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+                transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+                transform: none;
+      }
+    }
+
+    @keyframes rollIn {
+      0% {
+        opacity: 0;
+        -webkit-transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+                transform: translate3d(-100%, 0, 0) rotate3d(0, 0, 1, -120deg);
+      }
+
+      100% {
+        opacity: 1;
+        -webkit-transform: none;
+                transform: none;
+      }
+    }
+
+    
+    .part {
         display: none;
+        border-radius: 50%;
+    }
+    .item1 .part1 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item1 .part2 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item3 .part1 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item3 .part2 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item2 .part1 {
+        position: absolute;
+        top: 100px;
+        right: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item2 .part3 {
         position: absolute;
         bottom: 60px;
+        left: 19%;
         text-align: center;
-        width: 100%;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item2 .part2 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item4 .part1 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item4 .part2 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item5 .part1 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 150px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
     }
 </style>
 
@@ -210,21 +581,29 @@
 <body>
     <div class="container">
         <div class="item item1">
-            <h1>page1</h1>
-            <div class="aaa fadeIn">aaaaaaaaa</div>
+            <h2>page1</h2>
+            <div class="part part1 fadeIn"></div>
+            <div class="part part2 fadeIn"></div>
         </div>
         <div class="item item2">
-            <h1>page2</h1>
-            <div class="aa slideLeft">aaaaaaaaa</div>
+            <h2>page2</h2>
+            <div class="part part1 slideRight" data-delay="1300"></div>
+            <div class="part part2 slideLeft"></div>
+            <div class="part part3 zoomIn"></div>
         </div>
         <div class="item item3">
-            <h1>page3</h1>
+            <h2>page3</h2>
+            <div class="part part1 slideUp"></div>
+            <div class="part part2 slideDown"></div>
         </div>
         <div class="item item4">
-            <h1>page4</h1>
+            <h2>page4</h2>
+            <div class="part part1 heartBeat"></div>
+            <div class="part part2 heartBeat"></div>
         </div>
         <div class="item item5">
-            <h1>page5</h1>
+            <h2>page5</h2>
+            <div class="part part1 rollIn"></div>
         </div>
     </div>
     <script type="text/javascript" src="zepto.js"></script>
@@ -244,6 +623,7 @@
          window.MagicPage = {
             'init' : function(option){
                 $.extend(opt,option);
+                $('.item').eq(0).find('.part').show();
                 initDom(opt);
                 initEvent(opt);
             }
@@ -452,6 +832,8 @@
             if ($(event.target).next().length) {
                 $(event.target).attr('state','prev');
                 $(event.target).next().attr('state','next');
+
+                orderPart($(event.target).next());
                  obj[opt.type].nextSlide(event);
             } else {
                  obj[opt.type].showSlide(event);
@@ -482,6 +864,17 @@
                 var src = opt.useMusic.src;
                 $('body').append('<span class="music play"><audio id="audio" src='+src+' '+autoplay+' '+loopPlay+'></audio></span>');
             }
+         }
+         function orderPart(dom){
+            var parts = $(dom).find('.part');
+            debugger;
+            parts.forEach(function(item){
+                var time = $(item).attr('data-delay') || 0;
+                debugger;
+                setTimeout(function(){
+                    $(item).show();
+                },time);
+            });
          }
          function initEvent(){
             $('.music').on('tap',function(){
@@ -538,7 +931,7 @@
     MagicPage.init({'type':2,'pageShow' : function(dom){
         //console.log(dom);
         //$(dom).find('.aa').hide().removeClass('fadeIn');
-        $(dom).find('.aa').show();
+        
         setTimeout(function(){
             //$(dom).find('.aa').addClass('fadeIn');
         });
