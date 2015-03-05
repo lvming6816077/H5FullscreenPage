@@ -34,8 +34,9 @@ Is use music or not ,if not use put this value to null.
 ###Use css animaion
 
 <pre>
-<div class="part fadeIn" data-delay="1300"></div>
+&lt;div class="part  slideRight" data-delay="1300"&gt;&lt;/div&gt;
 </pre>
 
 If you want to use css animaion in your page. you can add a class with .part and choose what animation to use. data-delay let the animation delay some seconds to run.
-animation list:[fadeIn,slideLeft,slideRight,slideUp,slideDown,rotateIn,zoomIn,heartBeat,rollInLeft,rollInRight]
+animation list:
+[fadeIn,slideLeft,slideRight,slideUp,slideDown,rotateIn,zoomIn,heartBeat,rollInLeft,rollInRight]
