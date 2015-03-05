@@ -94,7 +94,7 @@ code {
 pre {
   padding: 20px;
   overflow: auto;
-  border: solid 1px #ddd;
+  border: solid 1px #DFDFDF;
 }
 pre code {
   padding: 0;
@@ -226,3 +226,5 @@ footer a {
 .clearfix {display: inline-block;}
 * html .clearfix {height: 1%;}
 .clearfix {display: block;}
+
+

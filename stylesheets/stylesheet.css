@@ -563,7 +563,7 @@ pre {
   overflow: auto;
   text-shadow: none;
   background: #fff;
-  border: solid 1px #f2f2f2;
+  border: solid 1px #DFDFDF;
 }
 pre code {
   padding: 0;
