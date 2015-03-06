@@ -244,6 +244,7 @@
              obj[opt.type].showSlide(event);
          }
          function initDom(opt){
+            $('body').addClass('H5FullscreenPage');
             if (opt.useAnimation) {
                 var items = $('.item').slice(1,$('.item').length);
                 items.find('.part').addClass('hide');
