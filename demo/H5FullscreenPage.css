@@ -1,4 +1,4 @@
-.H5FullscreenPage {
+.H5FullscreenPage .H5FullscreenPage-wrap {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -29,7 +29,7 @@
 .H5FullscreenPage .hide {
     display: none;
 }
-.overlay {
+.H5FullscreenPage .overlay {
     display: none;
     position: absolute;
     top: 0;
@@ -38,7 +38,7 @@
     right: 0;
     z-index: 99;
 }
-.zindex {
+.H5FullscreenPage .zindex {
     z-index: 99;
 }
 .H5FullscreenPage .arrow {
