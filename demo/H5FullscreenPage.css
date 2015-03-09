@@ -57,7 +57,7 @@
     -webkit-animation: fadeInUp 1.5s .2s infinite;
 }
 .H5FullscreenPage .parallax.part {
-    transition: transform .5s;
+    transition: all .5s;
     transition-timing-function: ease-out;
 }
 .H5FullscreenPage .parallax-item {
