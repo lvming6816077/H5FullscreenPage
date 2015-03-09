@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>H5fullscreenpage by lvming6816077</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>H5fullscreenpage.js</h1>
+        <h2></h2>
+        <a href="https://github.com/lvming6816077/H5FullscreenPage" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
+<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to use H5fullscreenpage.js</h3>
+
+<p>This project can help you build a smaple scroll page quickly based on zepto.js or jquery.js. It not only can use in pc but also in mobile with high performance. Support music,css animation and you can choose some you like!</p>
+
+<pre><code>
+  &lt;link rel="stylesheet" type="text/css" href="H5FullscreenPage.css"&gt;
+  &lt;script type="text/javascript" src="zepto.js">&lt;/script&gt;
+  &lt;script type="text/javascript" src="H5FullscreenPage.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>If you want to use css animation in your project,you can also include: </p>
+  <pre><code>
+    &lt;link rel="stylesheet" type="text/css" href="page-animation.css"&gt;
+  </code></pre>
+<h3>
+<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML</h3>
+
+<pre><code>
+  &lt;div class="H5FullscreenPage-wrap"&gt;
+          &lt;div class="item"&gt;
+              
+          &lt;/div&gt;
+          &lt;div class="item"&gt;
+              
+          &lt;/div&gt;
+          &lt;div class="item"&gt;
+              
+          &lt;/div&gt;
+          &lt;div class="item"&gt;
+              
+          &lt;/div&gt;
+          &lt;div class="item"&gt;
+              
+          &lt;/div&gt;
+      &lt;/div&gt;
+</code></pre>
+<p>Give a div with class <span style="color:#2879d0;">.H5FullscreenPage</span> to wrap some div with class <span style="color:#2879d0;">.item</span>.</p>
+<h3>
+<a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Javascript</h3>
+<pre><code>
+  H5FullscreenPage.init();
+</code></pre>
+
+<p>Now, a sample can be run like this</p>
+<img src="images/h5scroll/sample.gif">
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use animation</h3>
+
+<p>You can use div with class <span style="color:#2879d0;">.part</span> to identify this is a animation part. And H5FullscreenPage provide some css animation to use. Dont forget to include page-animation.css</p>
+<pre><code>
+  &lt;div class="item"&gt;
+      &lt;h2&gt;page1&lt;/h2&gt;
+      &lt;div class="part  fadeIn"&gt;&lt;/div&gt;
+      &lt;div class="part  fadeIn"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+      &lt;h2&gt;page2&lt;/h2&gt;
+      &lt;div class="part  slideRight" data-delay="1300"&gt;&lt;/div&gt;
+      &lt;div class="part  slideLeft"&gt;&lt;/div&gt;
+      &lt;div class="part  zoomIn"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+      &lt;h2&gt;page3&lt;/h2&gt;
+      &lt;div class="part  slideUp"&gt;&lt;/div&gt;
+      &lt;div class="part  slideDown"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+      &lt;h2&gt;page4&lt;/h2&gt;
+      &lt;div class="part  heartBeat"&gt;&lt;/div&gt;
+      &lt;div class="part  heartBeat"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+      &lt;h2&gt;page5&lt;/h2&gt;
+      &lt;div class="part  rollInRight"&gt;&lt;/div&gt;
+      &lt;div class="part  rollInLeft"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="item"&gt;
+      &lt;h2&gt;page5&lt;/h2&gt;
+      &lt;div class="part  parallax"&gt;&lt;/div&gt;
+      &lt;div class="part  parallax"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+<div class="animation-block">
+<h4>slideDown</h4>
+<img src="images/h5scroll/2.gif">
+<h4>slideUp</h4>
+<img src="images/h5scroll/3.gif">
+<h4>heartBeat</h4>
+<img src="images/h5scroll/4.gif">
+<h4>rollInRight</h4>
+<img src="images/h5scroll/5.gif">
+<h4>parallax</h4>
+<img src="images/h5scroll/6.gif">
+</div>
+<h3>
+<a class="anchor"  aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo Page</h3>
+<img src="images/demo.png">
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>Having trouble with Pages? Check out the documentation at <a href="https://github.com/lvming6816077/H5FullscreenPage/blob/master/README.md">https://github.com/lvming6816077/H5FullscreenPage/blob/master/README.md</a></p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/lvming6816077/H5FullscreenPage/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/lvming6816077/H5FullscreenPage/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/lvming6816077/H5FullscreenPage"></a> is maintained by <a href="https://github.com/lvming6816077">lvming6816077</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
