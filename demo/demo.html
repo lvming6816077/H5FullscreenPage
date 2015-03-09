@@ -41,6 +41,9 @@
     .item5 {
         background-color: #F2572D;
     }
+    .item6 {
+        background-color: #0067A6;
+    }
     
     .item1 .part1 {
         position: absolute;
@@ -141,10 +144,33 @@
         height: 100px;
         background-color: rgb(116, 178, 9);
     }
+    
+    .item6 .part2 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 150px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item6 .part1 {
+        position: absolute;
+        bottom: 100px;
+        left: 19%;
+        text-align: center;
+        width: 150px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    /*.item6 {
+        background-image: url(7634.jpg);
+        background-position: center;
+    }*/
 </style>
 
 </head>
-<body>
+<body class="H5FullscreenPage">
     <div class="H5FullscreenPage-wrap">
         <div class="item item1">
             <h2>page1</h2>
@@ -171,6 +197,11 @@
             <h2>page5</h2>
             <div class="part part1 rollInRight"></div>
             <div class="part part2 rollInLeft"></div>
+        </div>
+        <div class="item item6">
+            <h2>page6</h2>
+            <div class="part part1 parallax"></div>
+            <div class="part part2 parallax"></div>
         </div>
     </div>
     <script type="text/javascript" src="zepto.js"></script>
