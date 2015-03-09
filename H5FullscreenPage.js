@@ -303,7 +303,7 @@
                     var halfHeight = window.innerHeight / 2;  
                  
                     
-                    var max = 10;
+                    var max = 5;
                     var items = $('.parallax');
                     items.forEach(function(item){
                         var dx = (item.getBoundingClientRect().width/max)*(x / halfWidth);
