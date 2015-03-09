@@ -3,6 +3,7 @@
             'type' : 1,
             'pageShow' : function(){},
             'pageHide' : function(){},
+            'useParallax' : true,
             'useArrow' : true,
             'useAnimation' : true,
             'useMusic' : {
@@ -208,16 +209,23 @@
 
          }
          function swipeUp(event){
+            if (!$(event.target).hasClass('item')) {
+                return;
+            }
              nextSlide(event);
              //$(event.target).css('-webkit-transform', 'translateY(-101%)'); 
              //$(event.target).next().css('-webkit-transform', 'translateY(0)'); 
          }
          function swipeDown(event){
+            if (!$(event.target).hasClass('item')) {
+                return;
+            }
              prevSlide(event);
              //$(event.target).css('-webkit-transform', 'translateY(101%)'); 
              //$(event.target).prev().css('-webkit-transform', 'translateY(0)'); 
          }
          function nextSlide(event){
+            //$(event.target).removeClass('parallax-item');
             //恢复到原样，或者展示下一item
             if ($(event.target).next().length) {
                 $(event.target).attr('state','prev');
@@ -231,6 +239,7 @@
             
          }
          function prevSlide(event){
+            //$(event.target).removeClass('parallax-item');
             if ($(event.target).prev().length) {
                 $(event.target).attr('state','prev');
                 $(event.target).prev().attr('state','next');
@@ -241,6 +250,7 @@
             
          }
          function showSlide(event){
+            //$(event.target).removeClass('parallax-item');
              obj[opt.type].showSlide(event);
          }
          function initDom(opt){
@@ -263,13 +273,58 @@
          function orderPart(dom){
             var parts = $(dom).find('.part');
             parts.forEach(function(item){
-                var time = $(item).attr('data-delay') || 0;
+                var time = $(item).attr('data-delay') || 100;
                 setTimeout(function(){
                     $(item).removeClass('hide');
                 },time);
             });
          }
-         function initEvent(){
+         function initEvent(opt){
+            if (opt.useParallax) {
+
+                var orginData = {x:0,y:0};
+                window.addEventListener('deviceorientation',function(event){
+                    var gamma = event.gamma;
+                    var beta = event.beta;
+
+                    var x = -gamma;
+                    var y = -beta;
+                    
+                    if (Math.abs(Math.abs(x) - Math.abs(orginData.x)) < 0.1 || Math.abs(Math.abs(y) - Math.abs(orginData.y)) < 0.1) {
+                        orginData.x = x;
+                        orginData.y = y;
+                        return;
+                    } else {
+                        orginData.x = x;
+                        orginData.y = y;
+                    }
+                    
+                    var halfWidth = window.innerWidth / 2;  
+                    var halfHeight = window.innerHeight / 2;  
+                 
+                    
+                    var max = 10;
+                    var items = $('.parallax');
+                    items.forEach(function(item){
+                        var dx = (item.getBoundingClientRect().width/max)*(x / halfWidth);
+                        var dy = (item.getBoundingClientRect().width/max)*(y / halfHeight);
+                        
+                        if ($(item).hasClass('item')) {
+                            //$(item).addClass('parallax-item');
+                            dx = -dx/1 + 50;
+                            dy = -dy/1 + 50;
+                            item.style['background-position'] = ''+dx+'% '+dy+'%';
+                            //$(item).removeClass('parallax-item');
+                        } else {
+                            item.style['transform'] = item.style['-webkit-transform'] = 'translate3d('+dx+'px,'+dy+'px,0)'; 
+                        }
+                        
+                        
+                    });
+                     
+                   
+                }, false);
+            }
             $('.music').on('tap',function(){
                 $(this).toggleClass('play');
                 var audio = document.getElementById('audio');

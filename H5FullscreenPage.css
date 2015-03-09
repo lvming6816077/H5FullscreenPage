@@ -56,6 +56,16 @@
     animation: fadeInUp 1.5s .2s ease infinite;
     -webkit-animation: fadeInUp 1.5s .2s infinite;
 }
+.H5FullscreenPage .parallax.part {
+    transition: transform .5s;
+    transition-timing-function: ease-out;
+}
+.H5FullscreenPage .parallax-item {
+    transition-property: background-position, transform;
+    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+
+}
 .H5FullscreenPage .music {
     position: absolute;
     right: 10px;
