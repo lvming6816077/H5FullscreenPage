@@ -261,7 +261,7 @@
             }
             $('body').append('<div class="overlay"></div>');
             if (opt.useArrow) {
-                $('.item').append('<span class="arrow"></span>');
+                $('.item').slice(0,$('.item').length-1).append('<span class="arrow"></span>');
             }
             if (opt.useMusic) {
                 var autoplay = opt.useMusic.autoPlay ? 'autoplay="autoplay"' : '';
