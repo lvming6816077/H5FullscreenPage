@@ -9,6 +9,10 @@ options:(default)
     'type' : 1,
     'pageShow' : function(page){},
     'pageHide' : function(page){},
+    'useShakeDevice' : {
+        'speed' : 30,
+        'callback' : function(page){}
+    },
     'useArrow' : true,
     'useAnimation' : true,
     'useMusic' : {
@@ -24,6 +28,8 @@ This value have 8 types[1-8], every type has the different scroll animation, you
 After every page into the screen this function will run and give a param to this page dom.
 ####pageHide
 After every page out the screen this function will run and give a param to this page dom.
+####useShakeDevice
+Provide the devicemotion interface to listen the shakedevice event need a speed and callback, give a param to this page dom when callback run.
 ####useArrow
 Is use arrow or not.
 ####useAnimation
