@@ -286,7 +286,7 @@
          function orderPart(dom){
             var parts = $(dom).find('.part');
             parts.forEach(function(item){
-                var time = $(item).attr('data-delay') || 100;
+                var time = $(item).attr('data-delay') || 200;
                 setTimeout(function(){
                     $(item).removeClass('hide');
                 },time);
