@@ -3,6 +3,10 @@
             'type' : 1,
             'pageShow' : function(){},
             'pageHide' : function(){},
+            'useShakeDevice' : {
+                'speed' : 30,
+                'callback' : function(){}
+            },
             'useParallax' : true,
             'useArrow' : true,
             'useAnimation' : true,
@@ -128,6 +132,7 @@
          var dragThreshold = 0.15; //临界值
          var dragStart = null;//开始抓取标志位
          var percentage = 0;//拖动量的百分比
+         var currentItem;
           
          function touchStart(event) {
             if (dragStart !== null) return;
@@ -227,9 +232,12 @@
          function nextSlide(event){
             //$(event.target).removeClass('parallax-item');
             //恢复到原样，或者展示下一item
-            if ($(event.target).next().length) {
+            if ($(event.target).next().length) { 
                 $(event.target).attr('state','prev');
-                $(event.target).next().attr('state','next');
+                $(event.target).siblings('.item').removeAttr('state');
+                
+                currentItem = $(event.target).next();
+                currentItem.attr('state','next');
 
                 orderPart($(event.target).next());
                 obj[opt.type].nextSlide(event);
@@ -241,8 +249,11 @@
          function prevSlide(event){
             //$(event.target).removeClass('parallax-item');
             if ($(event.target).prev().length) {
+
                 $(event.target).attr('state','prev');
-                $(event.target).prev().attr('state','next');
+                $(event.target).siblings('.item').removeAttr('state');
+                currentItem = $(event.target).prev();
+                currentItem.attr('state','next');
                 obj[opt.type].prevSlide(event);
             } else {
                 obj[opt.type].showSlide(event);
@@ -255,6 +266,8 @@
          }
          function initDom(opt){
             $('body').addClass('H5FullscreenPage');
+            currentItem = $('.item').first();
+            currentItem.attr('state','next');
             if (opt.useAnimation) {
                 var items = $('.item').slice(1,$('.item').length);
                 items.find('.part').addClass('hide');
@@ -324,6 +337,25 @@
                      
                    
                 }, false);
+            }
+            if (opt.useShakeDevice && opt.useShakeDevice.speed) {
+                var x = y = z = lastX = lastY = lastZ = 0;
+                if (window.DeviceMotionEvent) {
+                        window.addEventListener('devicemotion',function(eventData){
+                            var acceleration =event.accelerationIncludingGravity;
+                                        x = acceleration.x;
+                                        y = acceleration.y;
+                                        z = acceleration.z;
+                                        if(Math.abs(x-lastX) > opt.useShakeDevicespeed || Math.abs(y-lastY) > opt.useShakeDevicespeed || Math.abs(z-lastZ) > opt.useShakeDevicespeed) {
+                                            //shake
+                                            opt.useShakeDevice.callback && opt.useShakeDevice.callback(currentItem);
+                                            
+                                        }
+                                        lastX = x;
+                                        lastY = y;
+                                        lastZ = z;
+                        }, false);  
+                    }
             }
             $('.music').on('tap',function(){
                 $(this).toggleClass('play');
