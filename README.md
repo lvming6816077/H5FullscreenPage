@@ -13,6 +13,7 @@ options:(default)
         'speed' : 30,
         'callback' : function(page){}
     },
+    'useParallax' : true,
     'useArrow' : true,
     'useAnimation' : true,
     'useMusic' : {
@@ -32,6 +33,8 @@ After every page out the screen this function will run and give a param to this 
 Provide the devicemotion interface to listen the shakedevice event need a speed and callback, give a param to this page dom when callback run.
 ####useArrow
 Is use arrow or not.
+####useParallax
+This option will open deviceorientation event to add element which has class .parallax, then this element will move by device move.
 ####useAnimation
 Is use part animation or not.
 ####useMusic
