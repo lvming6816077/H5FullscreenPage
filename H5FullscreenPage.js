@@ -269,8 +269,9 @@
             currentItem = $('.item').first();
             currentItem.attr('state','next');
             if (opt.useAnimation) {
-                var items = $('.item').slice(1,$('.item').length);
+                var items = $('.item');
                 items.find('.part').addClass('hide');
+                orderPart(items.first());
             }
             $('body').append('<div class="overlay"></div>');
             if (opt.useArrow) {
