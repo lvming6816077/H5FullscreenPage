@@ -26,106 +26,106 @@
          
          var obj = {
              '1' : {
-                 'upDrag' : function(percentage, event){
+                 'upDrag' : function(percentage, item){
                      var translateY = 1 - 0.7*percentage;//位置系数，可以微调
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+                     item.next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
                  },
-                 'downDrag' : function(percentage, event){
+                 'downDrag' : function(percentage, item){
                      var translateY = -(0.7*percentage);
-                     $(event.target).prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
-                     $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+                     item.prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                     item.css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
                  },
-                 'nextSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'translate3d(0,-100%,0)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,0,0)');
+                 'nextSlide' : function(item){
+                     item.css('-webkit-transform', 'translate3d(0,-100%,0)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,0,0)');
                  },
-                 'prevSlide' : function(event){
-                     $(event.target).prev().css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'prevSlide' : function(item){
+                     item.prev().css('-webkit-transform', 'scale(1)'); 
+                     item.css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  },
-                 'showSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'showSlide' : function(item){
+                     item.css('-webkit-transform', 'scale(1)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  }
              },
              '2' : {
-                 'upDrag' : function(percentage, event){
+                 'upDrag' : function(percentage, item){
                      var scale = 1 - 0.2*percentage;//缩放系数，可以微调
                      var translateY = 1 - 0.7*percentage;//位置系数，可以微调
-                     $(event.target).css('-webkit-transform', 'scale('+scale+')');//当前item缩小
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+                     item.css('-webkit-transform', 'scale('+scale+')');//当前item缩小
+                     item.next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
                  },
-                 'downDrag' : function(percentage, event){
+                 'downDrag' : function(percentage, item){
                      var scale = 0.8 - 0.2*percentage;
                      var translateY = -(0.7*percentage);
-                     $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
-                     $(event.target).prev().css('-webkit-transform', 'scale('+scale+')');//前一个item放大
+                     item.css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+                     item.prev().css('-webkit-transform', 'scale('+scale+')');//前一个item放大
                  },
-                 'nextSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'scale(.8)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,0,0)');
+                 'nextSlide' : function(item){
+                     item.css('-webkit-transform', 'scale(.8)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,0,0)');
                  },
-                 'prevSlide' : function(event){
-                     $(event.target).prev().css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'prevSlide' : function(item){
+                     item.prev().css('-webkit-transform', 'scale(1)'); 
+                     item.css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  },
-                 'showSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'showSlide' : function(item){
+                     item.css('-webkit-transform', 'scale(1)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  }
              },
              '3' : {
-                 'upDrag' : function(percentage, event){
+                 'upDrag' : function(percentage, item){
                      var translateY = 1 - 0.4*percentage;//位置系数，可以微调
-                     $(event.target).css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+                     item.css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                     item.next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
                  },
-                 'downDrag' : function(percentage, event){
+                 'downDrag' : function(percentage, item){
                      var translateY = -(0.4*percentage);
-                     $(event.target).prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
-                     $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+                     item.prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                     item.css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
                  },
-                 'nextSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'translate3d(0,-100%,0)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,0,0)');
+                 'nextSlide' : function(item){
+                     item.css('-webkit-transform', 'translate3d(0,-100%,0)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,0,0)');
                  },
-                 'prevSlide' : function(event){
-                     $(event.target).prev().css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'prevSlide' : function(item){
+                     item.prev().css('-webkit-transform', 'scale(1)'); 
+                     item.css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  },
-                 'showSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'showSlide' : function(item){
+                     item.css('-webkit-transform', 'scale(1)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  }
              },
              '4' : {
-                 'upDrag' : function(percentage, event){
+                 'upDrag' : function(percentage, item){
                      var translateY = 1 - 0.4*percentage;//位置系数，可以微调
-                     $(event.target).css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
+                     item.css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                     item.next().css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)'); //下一个item上移动
                  },
-                 'downDrag' : function(percentage, event){
+                 'downDrag' : function(percentage, item){
                      var translateY = -(0.4*percentage);
-                     $(event.target).prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
-                     $(event.target).css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
+                     item.prev().css('-webkit-transform', 'translate3d(0,'+(translateY*100 - 100)+'%,0)');
+                     item.css('-webkit-transform', 'translate3d(0,'+translateY*100+'%,0)');//当前item下移动
                  },
-                 'nextSlide' : function(event){
-                     $(event.target).addClass('zindex');
+                 'nextSlide' : function(item){
+                     item.addClass('zindex');
                      setTimeout(function(){
-                         $(event.target).removeClass('no-animation').css('-webkit-transform', 'translate3d(0,-100%,0)');
-                         $(event.target).next().removeClass('zindex').addClass('no-animation').css('-webkit-transform', 'translate3d(0,0,0)');
+                         item.removeClass('no-animation').css('-webkit-transform', 'translate3d(0,-100%,0)');
+                         item.next().removeClass('zindex').addClass('no-animation').css('-webkit-transform', 'translate3d(0,0,0)');
                      },100);
                      
                  },
-                 'prevSlide' : function(event){
+                 'prevSlide' : function(item){
                      
-                     $(event.target).prev().css('-webkit-transform', 'translate3d(0,0,0)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
-                     $(event.target).removeClass('zindex');
+                     item.prev().css('-webkit-transform', 'translate3d(0,0,0)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                     item.removeClass('zindex');
                  },
-                 'showSlide' : function(event){
-                     $(event.target).css('-webkit-transform', 'scale(1)'); 
-                     $(event.target).next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
+                 'showSlide' : function(item){
+                     item.css('-webkit-transform', 'scale(1)'); 
+                     item.next().css('-webkit-transform', 'translate3d(0,100%,0)'); 
                  }
              }
          };
@@ -136,7 +136,8 @@
           
          function touchStart(event) {
             if (dragStart !== null) return;
-             if (!$(event.target).hasClass('item')) {
+            var item = $(event.target).closest('.item');
+             if (!item.length) {
                  $('.overlay').hide();
                  return;
              }
@@ -145,11 +146,11 @@
             }
              //抓取时的所在位置
             dragStart = event.clientY;
-          
+            
              //分别关闭item的动画效果,动画效果只在松开抓取时出现
-            $(event.target).addClass('no-animation');
-            $(event.target).next().addClass('no-animation');
-            $(event.target).prev().addClass('no-animation');
+            item.addClass('no-animation');
+            item.next().addClass('no-animation');
+            item.prev().addClass('no-animation');
 
          }
           
@@ -159,7 +160,8 @@
             event.preventDefault();
             
             if (dragStart === null) return;
-             if (!$(event.target).hasClass('item')) {
+            var item = $(event.target).closest('.item');
+             if (!item.length) {
                  $('.overlay').hide();
                  return;
              }
@@ -176,15 +178,15 @@
                 // $(event.target).css('-webkit-transform', 'scale('+scale+')');//当前item缩小
                 // $(event.target).next().css('-webkit-transform', 'translateY('+translateY*100+'%)'); //下一个item上移动
                  //$(event.target).css('opacity', ''+scale+'');//当前item缩小
-                 obj[opt.type].upDrag(percentage, event);
+                 obj[opt.type].upDrag(percentage, item);
                  
-            } else if ($(event.target).prev()) {
+            } else if (item.prev()) {
                 //向下拖动
                 // var scale = 0.8 - 0.2*percentage;
                 // var translateY = -(0.4*percentage);
                 // $(event.target).css('-webkit-transform', 'translateY('+translateY*100+'%)');//当前item下移动
                 // $(event.target).prev().css('-webkit-transform', 'scale('+scale+')');//前一个item放大
-                 obj[opt.type].downDrag(percentage, event);
+                 obj[opt.type].downDrag(percentage, item);
             }
             
          }
@@ -193,84 +195,88 @@
             //防止多次滚动，故增加一个覆盖层
             $('.overlay').show();
             dragStart = null;
-             if (!$(event.target).hasClass('item')) {
+            var item = $(event.target).closest('.item');
+             if (!item.length) {
                  $('.overlay').hide();
                  return;
              }
-            $(event.target).removeClass('no-animation');
-            $(event.target).next().removeClass('no-animation');
-            $(event.target).prev().removeClass('no-animation');
+            item.removeClass('no-animation');
+            item.next().removeClass('no-animation');
+            item.prev().removeClass('no-animation');
             
             //抓取停止后，根据临界值做相应判断
             if (percentage >= dragThreshold) {
-                nextSlide(event);
+                nextSlide(item);
             } else if ( Math.abs(percentage) >= dragThreshold ) {
-                prevSlide(event);
+                prevSlide(item);
             } else {
-                showSlide(event);
+                showSlide(item);
             }
              //重置percentage
             percentage = 0;
 
          }
          function swipeUp(event){
-            if (!$(event.target).hasClass('item')) {
+            var item = $(event.target).closest('.item');
+            if (!item.length) {
                 return;
             }
-             nextSlide(event);
+             nextSlide(item);
              //$(event.target).css('-webkit-transform', 'translateY(-101%)'); 
              //$(event.target).next().css('-webkit-transform', 'translateY(0)'); 
          }
          function swipeDown(event){
-            if (!$(event.target).hasClass('item')) {
+            var item = $(event.target).closest('.item');
+            if (!item.length) {
                 return;
             }
-             prevSlide(event);
+             prevSlide(item);
              //$(event.target).css('-webkit-transform', 'translateY(101%)'); 
              //$(event.target).prev().css('-webkit-transform', 'translateY(0)'); 
          }
-         function nextSlide(event){
+         function nextSlide(item){
             //$(event.target).removeClass('parallax-item');
             //恢复到原样，或者展示下一item
-            if ($(event.target).next().length) { 
-                $(event.target).attr('state','prev');
-                $(event.target).siblings('.item').removeAttr('state');
+            if (item.next().length) { 
+                item.attr('state','prev');
+                item.siblings('.item').removeAttr('state');
                 
-                currentItem = $(event.target).next();
+                currentItem = item.next();
                 currentItem.attr('state','next');
 
-                orderPart($(event.target).next());
-                obj[opt.type].nextSlide(event);
+                orderPart(item.next());
+                obj[opt.type].nextSlide(item);
             } else {
-                obj[opt.type].showSlide(event);
+                obj[opt.type].showSlide(item);
             }
             
          }
-         function prevSlide(event){
+         function prevSlide(item){
             //$(event.target).removeClass('parallax-item');
-            if ($(event.target).prev().length) {
+            if (item.prev().length) {
 
-                $(event.target).attr('state','prev');
-                $(event.target).siblings('.item').removeAttr('state');
-                currentItem = $(event.target).prev();
+                item.attr('state','prev');
+                item.siblings('.item').removeAttr('state');
+                currentItem = item.prev();
                 currentItem.attr('state','next');
-                obj[opt.type].prevSlide(event);
+                obj[opt.type].prevSlide(item);
             } else {
-                obj[opt.type].showSlide(event);
+                obj[opt.type].showSlide(item);
             }
             
          }
-         function showSlide(event){
+         function showSlide(item){
             //$(event.target).removeClass('parallax-item');
-             obj[opt.type].showSlide(event);
+             obj[opt.type].showSlide(item);
          }
          function initDom(opt){
             $('body').addClass('H5FullscreenPage');
             currentItem = $('.item').first();
             currentItem.attr('state','next');
             if (opt.useAnimation) {
-                var items = $('.item').slice(1,$('.item').length);
+                var items = $('.item');
                 items.find('.part').addClass('hide');
+                orderPart(items.first());
             }
             $('body').append('<div class="overlay"></div>');
             if (opt.useArrow) {
@@ -286,7 +292,7 @@
          function orderPart(dom){
             var parts = $(dom).find('.part');
             parts.forEach(function(item){
-                var time = $(item).attr('data-delay') || 200;
+                var time = $(item).attr('data-delay') || 100;
                 setTimeout(function(){
                     $(item).removeClass('hide');
                 },time);
