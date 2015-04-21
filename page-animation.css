@@ -8,7 +8,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
 
     @keyframes fadeIn {
@@ -56,7 +56,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
 
     @keyframes slideLeft {
@@ -96,7 +96,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
 
     @keyframes slideRight {
@@ -136,7 +136,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
 
     @keyframes slideUp {
@@ -176,7 +176,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
 
     @keyframes slideDown {
@@ -216,7 +216,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
 
     @keyframes rotateIn {
@@ -264,7 +264,7 @@
         animation-timing-function: ease-in-out; 
         -webkit-animation-timing-function: ease-in-out;     
 
-        visibility: visible !important;
+        
     }
     @-webkit-keyframes zoomIn {
       0% {

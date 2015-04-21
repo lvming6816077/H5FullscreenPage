@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html class=" js-no-overflow-scrolling">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>test1</title>
+<link rel="stylesheet" type="text/css" href="H5FullscreenPage.css">
+<link rel="stylesheet" type="text/css" href="page-animation.css">
+<style type="text/css">
+    
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: arial;
+        text-align: center;
+    }
+    
+    * {
+        margin:0;
+        padding: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    
+    .item2 {
+        background-color: #0067A6;
+    }
+    .item1 {
+        background-color: #00ABD8;
+    }
+    .item3 {
+        background-color: #008972;
+    }
+    .item4 {
+        background-color: #F5C564;
+    }
+    .item5 {
+        background-color: #F2572D;
+    }
+    .item6 {
+        background-color: #0067A6;
+    }
+    
+    .item1 .part1 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item1 .part2 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item3 .part1 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item3 .part2 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item2 .part1 {
+        position: absolute;
+        top: 100px;
+        right: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item2 .part3 {
+        position: absolute;
+        bottom: 60px;
+        left: 19%;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item2 .part2 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item4 .part1 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item4 .part2 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item5 .part1 {
+        position: absolute;
+        bottom: 100px;
+        right: 19%;
+        text-align: center;
+        width: 150px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item5 .part2 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 150px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    
+    .item6 .part2 {
+        position: absolute;
+        top: 100px;
+        left: 19%;
+        text-align: center;
+        width: 150px;
+        height: 100px;
+        background-color: rgb(116, 178, 9);
+    }
+    .item6 .part1 {
+        position: absolute;
+        bottom: 100px;
+        left: 19%;
+        text-align: center;
+        width: 250px;
+        height: 250px;
+        background-color: rgb(116, 178, 9);
+    }
+    /*.item6 {
+        background-image: url(7634.jpg);
+        background-position: center;
+    }*/
+</style>
+
+</head>
+<body class="H5FullscreenPage">
+    <div class="H5FullscreenPage-wrap">
+        <div class="item item1">
+            <h2>page1</h2>
+            <div class="part part1 fadeIn" data-delay="1000"></div>
+            <div class="part part2 fadeIn"></div>
+        </div>
+        <div class="item item2">
+            <h2>page2</h2>
+            <div class="part part1 slideRight" data-delay="1300"></div>
+            <div class="part part2 slideLeft"></div>
+            <div class="part part3 zoomIn"></div>
+        </div>
+        <div class="item item3">
+            <h2>page3</h2>
+            <div class="part part1 slideUp"></div>
+            <div class="part part2 slideDown"></div>
+        </div>
+        <div class="item item4">
+            <h2>page4</h2>
+            <div class="part part1 heartBeat"></div>
+            <div class="part part2 heartBeat"></div>
+        </div>
+        <div class="item item5">
+            <h2>page5</h2>
+            <div class="part part1 rollInRight"></div>
+            <div class="part part2 rollInLeft"></div>
+        </div>
+        <div class="item item6">
+            <h2>page6</h2>
+            <div class="part part1 rollInRight parallax"></div>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/zepto/1.0rc1/zepto.min.js"></script>
+    <script type="text/javascript" src="H5FullscreenPage.js"></script>
+    <script type="text/javascript">
+    
+    H5FullscreenPage.init({'type':2,'pageShow' : function(dom){
+        
+    },'pageHide' : function(dom){
+        //console.log(dom);
+    }});
+    
+    </script>
+</body>
+</html>
