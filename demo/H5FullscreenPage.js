@@ -395,7 +395,7 @@
                 //覆盖层隐藏
                 $('.overlay').hide();
             });
-            $('.item').on('transitionend', function(event){
+            $('.item').on('transitionend webkitTransitionEnd', function(event){
                //覆盖层隐藏
                $('.overlay').hide();
                //console.log($(event.target).attr('state'));
