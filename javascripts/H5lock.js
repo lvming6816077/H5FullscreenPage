@@ -1,5 +1,5 @@
-(function(){
-        var H5lock = function(obj){
+﻿(function(){
+        window.H5lock = function(obj){
             this.height = obj.height;
             this.width = obj.width;
             this.chooseType = Number(window.localStorage.getItem('chooseType')) || obj.chooseType;
