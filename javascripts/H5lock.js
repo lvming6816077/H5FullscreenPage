@@ -221,9 +221,7 @@
 
 
              }, false);
-             document.addEventListener('touchmove', function(e){
-                e.preventDefault();
-             },false);
+             
              document.getElementById('updatePassword').addEventListener('click', function(){
                  self.updatePassword();
               });
