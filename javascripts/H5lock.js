@@ -1,4 +1,4 @@
-﻿(function(){
+(function(){
         window.H5lock = function(obj){
             this.height = obj.height;
             this.width = obj.width;
