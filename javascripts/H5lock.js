@@ -3,6 +3,7 @@
             this.height = obj.height;
             this.width = obj.width;
             this.chooseType = Number(window.localStorage.getItem('chooseType')) || obj.chooseType;
+            this.devicePixelRatio = window.devicePixelRatio || 1;
         };
 
 
@@ -75,8 +76,8 @@
         H5lock.prototype.getPosition = function(e) {// 获取touch点相对于canvas的坐标
             var rect = e.currentTarget.getBoundingClientRect();
             var po = {
-                x: e.touches[0].clientX - rect.left,
-                y: e.touches[0].clientY - rect.top
+                x: (e.touches[0].clientX - rect.left)*this.devicePixelRatio,
+                y: (e.touches[0].clientY - rect.top)*this.devicePixelRatio
               };
             return po;
         }
@@ -167,11 +168,26 @@
         H5lock.prototype.initDom = function(){
             var wrap = document.createElement('div');
             var str = '<h4 id="title" class="title">绘制解锁图案</h4>'+
-                      '<a id="updatePassword" style="position: absolute;right: 5px;top: 5px;color:#fff;font-size: 10px;display:none;">重置密码</a>'+
-                      '<canvas id="canvas" width="300" height="300" style="background-color: #305066;display: inline-block;margin-top: 15px;"></canvas>';
+                      '<a id="updatePassword" style="position: absolute;right: 5px;top: 5px;color:#fff;font-size: 10px;display:none;">重置密码</a>';
+
             wrap.setAttribute('style','position: absolute;top:0;left:0;right:0;bottom:0;');
+            var canvas = document.createElement('canvas');
+            canvas.setAttribute('id','canvas');
+            canvas.style.cssText = 'background-color: #305066;display: inline-block;margin-top: 15px;';
             wrap.innerHTML = str;
+            wrap.appendChild(canvas);
+
+            var width = this.width || 300;
+            var height = this.height || 300;
+            
             document.body.appendChild(wrap);
+
+            // 高清屏锁放
+            canvas.style.width = width + "px";
+            canvas.style.height = height + "px";
+            canvas.height = height * this.devicePixelRatio;
+            canvas.width = width * this.devicePixelRatio;
+
         }
         H5lock.prototype.init = function() {
             this.initDom();
@@ -225,9 +241,7 @@
 
 
              }, false);
-             document.addEventListener('touchmove', function(e){
-                e.preventDefault();
-             },false);
+
              document.getElementById('updatePassword').addEventListener('click', function(){
                  self.updatePassword();
               });
