@@ -23,29 +23,29 @@ options:(default)
     }
  };
 </pre>
-####type
+#### type
 This value have 8 types[1-8], every type has the different scroll animation, you can change it for yourself.
-####pageShow
+#### pageShow
 After every page into the screen this function will run and give a param to this page dom.
-####pageHide
+#### pageHide
 After every page out the screen this function will run and give a param to this page dom.
-####useShakeDevice
+#### useShakeDevice
 Provide the devicemotion interface to listen the shakedevice event need a speed and callback, give a param to this page dom when callback run.
-####useArrow
+#### useArrow
 Is use arrow or not.
 ####useParallax
 This option will open deviceorientation event to add element which has class .parallax, then this element will move by device move.
-####useAnimation
+#### useAnimation
 Is use part animation or not.
-####useMusic
+#### useMusic
 Is use music or not ,if not use put this value to null.
 
-###Use css animaion
+### Use css animaion
 
 <pre>
 &lt;div class="part  slideRight" data-delay="1300"&gt;&lt;/div&gt;
 </pre>
 
 If you want to use css animaion in your page. you can add a class with .part and choose what animation to use. data-delay let the animation delay some seconds to run.
-####Animation list:
+#### Animation list:
 [fadeIn,slideLeft,slideRight,slideUp,slideDown,rotateIn,zoomIn,heartBeat,rollInLeft,rollInRight]
